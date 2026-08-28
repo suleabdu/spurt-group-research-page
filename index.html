@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spurt! | Research & Opportunities</title>
+    <style>
+        /* CSS Variables mimicking clean corporate branding */
+        :root {
+            --spurt-black: #009051;
+            --spurt-white: #FFFFFF;
+            --spurt-grey: #F4F5F7;
+            --spurt-accent: #89D656;
+            /* Update to exact Spurt! accent hex if needed */
+            --spurt-text-light: #5E6C84;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--spurt-grey);
+            color: var(--spurt-black);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: var(--spurt-white);
+            padding: 24px 5%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: var(--spurt-black);
+            text-decoration: none;
+        }
+
+        /* The signature Spurt exclamation point */
+        .logo span {
+            color: var(--spurt-accent);
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 5%;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            max-width: 800px;
+        }
+
+        p.subtitle {
+            font-size: 1.125rem;
+            color: var(--spurt-text-light);
+            margin-bottom: 48px;
+            max-width: 600px;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .card {
+            background: var(--spurt-white);
+            padding: 40px 32px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+            border-top: 4px solid transparent;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Differentiating the primary goal vs secondary goal visually */
+        .card.survey-card {
+            border-top-color: var(--spurt-black);
+        }
+
+        .card.application-card {
+            border-top-color: var(--spurt-accent);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: var(--spurt-text-light);
+            margin-bottom: 32px;
+            flex-grow: 1;
+        }
+
+        .btn {
+            display: inline-block;
+            width: 100%;
+            padding: 14px 24px;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--spurt-black);
+            color: var(--spurt-white);
+            border: 2px solid var(--spurt-black);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--spurt-black);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--spurt-accent);
+            border: 2px solid var(--spurt-accent);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--spurt-accent);
+            color: var(--spurt-white);
+        }
+
+        footer {
+            background-color: var(--spurt-white);
+            text-align: center;
+            padding: 24px;
+            color: var(--spurt-text-light);
+            font-size: 0.875rem;
+            border-top: 1px solid #EAEAEA;
+            margin-top: auto;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="https://solutions.spurt.tools" class="logo">Spurt<span>!</span></a>
+    </header>
+
+    <main>
+        <h1>Shape the Future of Business</h1>
+        <p class="subtitle">Join our ongoing research to help us understand the ecosystem, or take the next step in your
+            growth journey with current funding opportunities.</p>
+
+        <div class="card-container">
+            <!-- Survey Action -->
+            <div class="card survey-card">
+                <h2>Business Research Survey</h2>
+                <p>Help us know more about your business by filling out this short survey.</p>
+                <a href="https://forms.gle/tKJhzd2fzZtpfYbk8" class="btn btn-primary">Take the Survey</a>
+            </div>
+
+            <!-- Loan Action -->
+            <div class="card application-card">
+                <h2>Funding Opportunities</h2>
+                <p>Ready to scale? Access capital and resources designed for growing businesses.</p>
+                <a href="https://idice.boi.ng/beneficiary/e48e9666-1161-4158-8747-49080975d1ce?fbclid=IwVERDUAT-KU5wZG9mBWZkaWQWUNUQVG-mxJOqDjwftmJWVG95w6Ndt2V4dG4DYWVtAjEwAHNydGMGYXBwX2lkCjY2Mjg1NjgzNzkAAR6eGvdZOcLei1kA-x3T212v7p_tR4-6xWNx6Vbj5uAgMEI36rsZ84KzYwQY6g_aem_LMbC5NU_vJOdJO1hNCQgKA"
+                    class="btn btn-outline">Apply for iDICE-BOI Loan</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Spurt! Group. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>
