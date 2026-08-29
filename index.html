@@ -12,7 +12,6 @@
             --spurt-white: #FFFFFF;
             --spurt-grey: #F4F5F7;
             --spurt-accent: #89D656;
-            /* Update to exact Spurt! accent hex if needed */
             --spurt-text-light: #ffc574;
             --spurt-text-grey: #222020;
         }
@@ -27,7 +26,7 @@
         body {
             background-color: var(--spurt-grey);
             color: var(--spurt-black);
-            line-height: 1.6;
+            line-height: 1.5;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
@@ -35,7 +34,7 @@
 
         header {
             background-color: var(--spurt-white);
-            padding: 24px 5%;
+            padding: 1.25rem 5%;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
             display: flex;
             align-items: center;
@@ -43,15 +42,10 @@
 
         /* Image logo styling */
         .logo-img {
-            height: 60px;
-            /* Adjust this value to make the logo larger or smaller */
+            height: 3rem;
+            /* Scaled down slightly and using rem */
             width: auto;
             display: block;
-        }
-
-        /* The signature Spurt exclamation point */
-        .logo span {
-            color: var(--spurt-accent);
         }
 
         main {
@@ -60,11 +54,9 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 80px 5%;
+            padding: 4rem 5%;
             text-align: center;
             position: relative;
-            /* New Background Image */
-            background-image: url('https://spurt.solutions/images/png/new-hero.png');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -78,42 +70,68 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.6);
+            background: #A7C9B8;
             z-index: 1;
         }
 
-        /* Pushes content above the dark overlay */
         main>* {
             position: relative;
             z-index: 2;
         }
 
+        /* Using clamp() for fluid, relative font sizing across devices */
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 16px;
+            font-size: clamp(1.75rem, 4vw, 2.25rem);
+            margin-bottom: 0.75rem;
             color: var(--spurt-white);
             max-width: 800px;
         }
 
         p.subtitle {
-            font-size: 1.125rem;
-            color: var(--spurt-text-light);
-            margin-bottom: 48px;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            color: #222020;
+            margin-bottom: 2.5rem;
             max-width: 600px;
         }
 
-        .card-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 24px;
+        /* --- LAYOUT CSS --- */
+        .layout-wrapper {
+            display: flex;
+            flex-direction: row;
+            gap: 1.5rem;
+            /* Reduced gap between left and right columns */
             width: 100%;
-            max-width: 900px;
+            max-width: 1100px;
+            /* Slightly tighter max-width */
+            align-items: stretch;
         }
+
+        .surveys-column {
+            flex: 2;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+            /* Reduced gap between survey cards */
+        }
+
+        .opportunities-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .opportunities-column .card {
+            flex: flex;
+            justify-content: center;
+        }
+
+        /* ------------------------ */
 
         .card {
             background: var(--spurt-white);
-            padding: 40px 32px;
-            border-radius: 8px;
+            padding: 1.5rem 1.25rem;
+            /* Reduced padding for smaller card footprint */
+            border-radius: 0.5rem;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             display: flex;
             flex-direction: column;
@@ -128,7 +146,6 @@
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
         }
 
-        /* Differentiating the primary goal vs secondary goal visually */
         .card.survey-card {
             border-top-color: var(--spurt-black);
         }
@@ -138,22 +155,27 @@
         }
 
         .card h2 {
-            font-size: 1.5rem;
-            margin-bottom: 12px;
+            font-size: 1.15rem;
+            /* Reduced from 1.5rem */
+            margin-bottom: 0.5rem;
         }
 
         .card p {
+            font-size: 0.875rem;
+            /* Reduced font size for tighter look */
             color: var(--spurt-text-grey);
-            margin-bottom: 32px;
+            margin-bottom: 1.5rem;
             flex-grow: 1;
         }
 
         .btn {
             display: inline-block;
             width: 100%;
-            padding: 14px 24px;
-            border-radius: 4px;
-            font-size: 1rem;
+            padding: 0.75rem 1.25rem;
+            /* Smaller button padding */
+            border-radius: 0.25rem;
+            font-size: 0.875rem;
+            /* Smaller button text */
             font-weight: 600;
             text-align: center;
             text-decoration: none;
@@ -173,32 +195,47 @@
 
         .btn-outline {
             background-color: transparent;
-            color: var(--spurt-accent);
+            color: var(--spurt-black);
             border: 2px solid var(--spurt-accent);
         }
 
         .btn-outline:hover {
             background-color: var(--spurt-accent);
             color: var(--spurt-white);
+            border-color: var(--spurt-accent);
         }
 
         footer {
             background-color: var(--spurt-white);
             text-align: center;
-            padding: 24px;
+            padding: 1.25rem;
             color: var(--spurt-text-grey);
-            font-size: 0.875rem;
+            font-size: 0.8rem;
             border-top: 1px solid #EAEAEA;
             margin-top: auto;
         }
 
+        /* Responsive Design / Phone Views */
+        @media (max-width: 992px) {
+            .layout-wrapper {
+                flex-direction: column;
+            }
+        }
+
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
+            main {
+                padding: 3rem 5%;
+                /* Tighter main padding on mobile */
             }
 
-            .card-container {
+            .surveys-column {
                 grid-template-columns: 1fr;
+                /* Stacks to 1 card per row on mobile */
+            }
+
+            .card {
+                padding: 1.25rem 1rem;
+                /* Even smaller padding on mobile devices */
             }
         }
     </style>
@@ -214,27 +251,86 @@
     </header>
 
     <main>
-        <h1>Shape the Future of Business</h1>
+        <h1>Shape the Future of Business and be among the first person to Receive Funding Grants, Job Offers, and
+            Network Opportunity</h1>
         <p class="subtitle">Join our ongoing research to help us understand the ecosystem, or take the next step in your
             growth journey with current funding opportunities.</p>
 
-        <div class="card-container">
-            <!-- Survey Action -->
-            <div class="card survey-card">
-                <h2>Business Research Survey</h2>
-                <p>Help us know more about your business by filling out the short 2026 Data Practices Assessment
-                    Questionnaire survey.</p>
-                <a href="https://forms.gle/tKJhzd2fzZtpfYbk8" class="btn btn-primary">Take the Survey</a>
+        <div class="layout-wrapper">
+
+            <!-- LEFT SIDE: 4 Survey Cards -->
+            <div class="surveys-column">
+
+                <!-- Survey 1 -->
+                <div class="card survey-card">
+                    <h2>Data Practices Survey</h2>
+                    <p>Help us know more about your business by filling out the short 2026 Data Practices Assessment
+                        Questionnaire survey.In return for your participation, you will be among the first to receive
+                        our findings and practical recommendations</p>
+                    <a href="https://forms.gle/tKJhzd2fzZtpfYbk8" class="btn btn-primary">Take the Survey</a>
+                </div>
+
+                <!-- Survey 2 (Placeholder) -->
+                <div class="card survey-card">
+                    <h2>Why Do You Use Social Media in Your Business?</h2>
+                    <p>Many small business owners are on social media. Not every one of them can tell you why or whether
+                        it is working for
+                        their business. Share your perspective on the evolving market landscape and help us tailor our
+                        enterprise
+                        solutions.</p>
+                    <a href="https://forms.gle/AEHmqBQWrXEvn9Q76" class="btn btn-primary">Take the Survey</a>
+                </div>
+
+                <!-- Survey 3 (Placeholder) -->
+                <div class="card survey-card">
+                    <h2>Is Your Workplace Ready to Maximise GenZ Talent?</h2>
+                    <p>Take 5 minutes to share your experience, and we'll will provide a clear picture of what's really
+                        driving Gen Z professionals across Africa to stay, leave, or keep moving. Because understanding
+                        the future of work starts with hearing from the people living it.</p>
+                    <a href="https://forms.gle/QzNPE4SsNwU74kVh8" class="btn btn-primary">Take the Survey</a>
+                </div>
+
+                <!-- Survey 4 (Placeholder) -->
+                <div class="card survey-card">
+                    <h2>Is EdTech Enabling the Future of Work?</h2>
+                    <p>Across sub-Saharan Africa, millions of young people are graduating and still being left behind.
+                        Credentials aren't
+                        converting into capabilities. Classrooms built for a different era are producing graduates for a
+                        world of work that no
+                        longer exists. Tell us where you are in your digital journey to help build better technological
+                        roadmaps for
+                        SMEs.</p>
+                    <a href="https://forms.gle/wKpMNaAJvgbickFt6" class="btn btn-primary">Take the Survey</a>
+                </div>
+
             </div>
 
-            <!-- Loan Action -->
-            <div class="card application-card">
-                <h2>Funding Opportunities</h2>
-                <p>Ready to scale? Access capital and resources designed for growing businesses.</p>
-                <a href="https://idice.boi.ng/beneficiary/e48e9666-1161-4158-8747-49080975d1ce?fbclid=IwVERDUAT-KU5wZG9mBWZkaWQWUNUQVG-mxJOqDjwftmJWVG95w6Ndt2V4dG4DYWVtAjEwAHNydGMGYXBwX2lkCjY2Mjg1NjgzNzkAAR6eGvdZOcLei1kA-x3T212v7p_tR4-6xWNx6Vbj5uAgMEI36rsZ84KzYwQY6g_aem_LMbC5NU_vJOdJO1hNCQgKA"
-                    class="btn btn-outline">Apply for iDICE-BOI Loan</a>
+            <!-- RIGHT SIDE: 1 Global Opportunity Card -->
+            <div class="opportunities-column">
+
+                <div class="card application-card">
+                    <h2>Apply for iDICE-BOI Grant</h2>
+                    <p>Ready to scale? Take any relevant survey and Access capital and resources designed for growing
+                        businesses worldwide. Explore
+                        our current open applications to take the next big step in your journey.</p>
+                    <a href="https://idice.boi.ng/beneficiary/e48e9666-1161-4158-8747-49080975d1ce?fbclid=IwVERDUAT-KU5wZG9mBWZkaWQWUNUQVG-mxJOqDjwftmJWVG95w6Ndt2V4dG4DYWVtAjEwAHNydGMGYXBwX2lkCjY2Mjg1NjgzNzkAAR6eGvdZOcLei1kA-x3T212v7p_tR4-6xWNx6Vbj5uAgMEI36rsZ84KzYwQY6g_aem_LMbC5NU_vJOdJO1hNCQgKA"
+                        class="btn btn-outline">Apply for iDICE-BOI Loan</a>
+                </div>
+                <!-- RIGHT SIDE: 1 Global Opportunity Card -->
+                <div class="opportunities-column">
+
+                    <div class="card application-card">
+                        <h2>Apply for SMEDAN 250,000 Free CAC Registrations</h2>
+                        <p>Ready to scale? Take any relevant survey and Access capital and resources designed for
+                            growing
+                            businesses worldwide. Explore
+                            our current open applications to take the next big step in your journey.</p>
+                        <a href="https://portal.smedan.gov.ng" class="btn btn-outline">Apply for Free CAC Business
+                            Certificate</a>
+                    </div>
+                </div>
+
             </div>
-        </div>
     </main>
 
     <footer>
