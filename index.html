@@ -61,6 +61,30 @@
             justify-content: center;
             padding: 80px 5%;
             text-align: center;
+            position: relative;
+            /* New Background Image */
+            background-image: url('https://spurt.solutions/images/png/new-hero.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Dark overlay to ensure text and white cards pop */
+        main::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        /* Pushes content above the dark overlay */
+        main>* {
+            position: relative;
+            z-index: 2;
         }
 
         h1 {
