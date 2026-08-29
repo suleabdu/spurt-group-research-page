@@ -40,12 +40,12 @@
             align-items: center;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            color: var(--spurt-black);
-            text-decoration: none;
+        /* Image logo styling */
+        .logo-img {
+            height: 60px;
+            /* Adjust this value to make the logo larger or smaller */
+            width: auto;
+            display: block;
         }
 
         /* The signature Spurt exclamation point */
@@ -181,7 +181,10 @@
 <body>
 
     <header>
-        <a href="https://solutions.spurt.tools" class="logo">Spurt<span>!</span></a>
+        <a href="https://solutions.spurt.tools">
+            <img src="https://spurt-x-tool2.s3.us-east-2.amazonaws.com/Spurt!%20Talent%20Management-logo"
+                alt="Spurt! Logo" class="logo-img">
+        </a>
     </header>
 
     <main>
